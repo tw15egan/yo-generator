@@ -27,14 +27,41 @@ module.exports = class extends Generator {
     this.log('Hey! Welcome to my generator');
   }
   
+  // Composability
   initializing() {
     this.composeWith(require.resolve('../turbo'));
     this.composeWith(require.resolve('../electric'));
   }
 
-  install() {
-    this.npmInstall(['express'], {'save': true});
-    this.spawnCommand('git', ['log']);
+  // // Install Queue
+  // install() {
+  //   this.npmInstall(['express'], {'save': true});
+  //   this.spawnCommand('git', ['log']);
+  // }
+  
+  // Destination Context
+  paths() {
+    // Where the user is running `yo`
+    this.log(this.contextRoot);
+    // Where closest `.yo-rc.json` is found
+    this.log(this.destinationRoot());
+    // Join paths
+    this.log(this.destinationPath('index.js'));
+    
+    // Templates location
+    this.log(this.sourceRoot());
+    // Join paths
+    this.log(this.templatePath('index.js'));
+  }
+  
+  writing() {
+    this.fs.copyTpl(
+      this.templatePath('index.html'),
+      this.destinationPath('public/index.html'),
+      {
+        title: 'Templating with Yeoman'
+      }
+    );
   }
   
   // prompting() {
