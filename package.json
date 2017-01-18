@@ -14,6 +14,7 @@
   },
   "author": "TJ Egan",
   "dependencies": {
+    "express": "^4.14.0",
     "yeoman-generator": "^1.0.1"
   }
 }
