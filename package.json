@@ -1,0 +1,19 @@
+{
+  "name": "generator-carbon-components",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "carbon"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TJ Egan",
+  "dependencies": {
+    "yeoman-generator": "^1.0.1"
+  }
+}
